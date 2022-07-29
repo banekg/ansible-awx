@@ -7,7 +7,7 @@
       debug:
         msg: "Hello World!"
     - name: Run ls command
-      command: "ls {{directory}}"
+      shell: "ls {{directory}}"
       register: command_output
       debug:
       var: command_output.stdout_lines
