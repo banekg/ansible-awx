@@ -1,0 +1,11 @@
+- name: Hello World Sample
+  hosts: all
+  vars:
+    directory: /var/lib  
+  tasks:
+    - name: Hello Message
+      debug:
+        msg: "Hello World!"
+    - name: Run ls command
+      command: "ls {{directory}}"
+      register: dir_out
