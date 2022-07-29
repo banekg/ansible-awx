@@ -9,5 +9,6 @@
     - name: Run ls command
       shell: "ls {{directory}}"
       register: command_output
+    - name: show the value of output
       debug:
-          var: command_output.stdout_lines
+        var: command_output.stdout_lines
