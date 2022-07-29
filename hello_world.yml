@@ -3,9 +3,6 @@
   vars:
     directory: /var/lib  
   tasks:
-    - name: Run ls command
-      command: "ls {{directory}}"
-      register: dir_out
     - name: Hello Message
       debug:
         msg: "Hello World!"
