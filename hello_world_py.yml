@@ -8,4 +8,6 @@
         msg: "Hello World!"
     - name: Run ls command
       command: "ls {{directory}}"
-      register: dir_out
+      register: command_output
+      debug:
+      var: command_output.stdout_lines
