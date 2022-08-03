@@ -10,13 +10,9 @@
     - name: Copy src files to hosts with new permissions
       ansible.builtin.copy:
         src: python_files/
-        dest: ~/syrmia_test_awx/
+        dest: /var/lib/awx/syrmia_test_awx/
         mode: a+x
     - name: Install python libraries
       command: pip install -r "{{python_requirements}}"
-      args:
-        chdir: ~/syrmia_test_awx/
     - name: Execute test script
       command: python3 "{{ test_script_name }}"
-      args:
-        chdir: ~/syrmia_test_awx/
