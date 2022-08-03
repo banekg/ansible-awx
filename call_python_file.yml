@@ -7,7 +7,12 @@
     - python_requirements: "requirements.txt"
 
   tasks:
+    - name: Copy src files to hosts with new permissions
+      ansible.builtin.copy:
+        src: python_files/
+        dest: ~/syrmia_test_awx/
+        mode: a+x
     - name: Install python libraries
-      command: pip install -r "{{source_path}}/{{python_requirements}}"
+      command: pip install -r "~/syrmia_test_awx/{{source_path}}/{{python_requirements}}"
     - name: Execute test script
       command: python3 "{{source_path}}/{{ test_script_name }}"
