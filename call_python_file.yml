@@ -1,0 +1,13 @@
+---
+- name: This is a hello-world example
+  hosts: all
+  vars:
+    - source_path: "python_files"
+    - test_script_name: "test.py"
+    - python_requirements: "requirements.txt"
+
+  tasks:
+    - name: Install python libraries
+      command: pip install -r "{{source_path}}/{{python_requirements}}"
+    - name: Execute test script
+      command: python3 "{{source_path}}/{{ test_script_name }}"
