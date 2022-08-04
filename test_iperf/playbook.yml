@@ -1,0 +1,15 @@
+---
+- name: This is a playbook for iperf test
+  hosts: all
+  vars:
+    - source_path: "python_files"
+    - test_script_name: "test.py"
+    - python_requirements: "requirements.txt"
+
+  tasks:
+    - name: Hello world on machine 1
+      delegate_to: Syrmia_VM_Client
+      command: echo hello world 1
+    - name: Hello world on machine 2
+      delegate_to: Syrmia_VM_Server
+      command: echo hello world 2
